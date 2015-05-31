@@ -55,24 +55,17 @@ var Picture = React.createClass({
 	getSource: function (index, source, data) {
 		var srcSet = [];
 
-		// media query is set to 0 --> min-width = 0 -> the image will be used as fallback image
-		if (data === 0) {
-			return null;
-		}
-
 		for (var i = 0; i < this.props.resolutions.length; i++) {
 			var resolution = this.props.resolutions[i];
-			var srcStr = source;
+			var s = source.split('.');
+			var ext = s[s.length - 1];
 
-			if (resolution > 1) {
-				source = source + ' ' + resolution + 'x';
-			}
-
-			srcSet.push(source);
+			source = source.replace('.' + ext, resolution.key + '.' + ext);
+			srcSet.push(source + ' ' + resolution.res + 'x');
 		}
 
 		return (
-			<source key={index} srcSet={srcSet.join(', ')} media={this.getMediaQuery(data)} />
+			<source key={index} media={this.getMediaQuery(data)} srcSet={srcSet.join(', ')} />
 		);
 	},
 
