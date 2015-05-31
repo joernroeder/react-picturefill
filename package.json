@@ -1,0 +1,22 @@
+{
+  "name": "react-picturefill",
+  "version": "0.1.0",
+  "description": "Picturefill Component for React",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "picturefill",
+    "responsive",
+    "image",
+    "polyfill"
+  ],
+  "author": "Jörn Röder <me@joernroeder.de>",
+  "license": "MIT",
+  "dependencies": {
+    "picturefill": "^2.3.1",
+    "react": "^0.13.3"
+  }
+}
